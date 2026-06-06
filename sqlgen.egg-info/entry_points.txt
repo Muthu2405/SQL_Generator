@@ -1,0 +1,3 @@
+[console_scripts]
+sqlgen = sql_generator.cli:main
+sqlgen-server = sql_generator.server:main

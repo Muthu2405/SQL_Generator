@@ -8,7 +8,8 @@ setup(
     description="Convert natural-language questions into SQL using Anthropic Claude.",
     author="sqlgen contributors",
     python_requires=">=3.9",
-    packages=find_packages(exclude=("tests", "tests.*")),
+    package_dir={"": "src"},
+    packages=find_packages(where="src", exclude=("tests", "tests.*")),
     install_requires=[
         "anthropic>=0.39.0",
         "rich>=13.7.0",
@@ -18,8 +19,8 @@ setup(
     ],
     entry_points={
         "console_scripts": [
-            "sqlgen=src/sql_generator.cli:main",
-            "sqlgen-server=src/sql_generator.server:main",
+            "sqlgen=sql_generator.cli:main",
+            "sqlgen-server=sql_generator.server:main",
         ],
     },
     classifiers=[

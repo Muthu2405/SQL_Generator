@@ -18,8 +18,8 @@ setup(
     ],
     entry_points={
         "console_scripts": [
-            "sqlgen=sql_generator.cli:main",
-            "sqlgen-server=sql_generator.server:main",
+            "sqlgen=src/sql_generator.cli:main",
+            "sqlgen-server=src/sql_generator.server:main",
         ],
     },
     classifiers=[

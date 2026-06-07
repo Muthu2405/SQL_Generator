@@ -1,0 +1,41 @@
+# Render Blueprint for sqlgen.
+# One web service: FastAPI builds the React bundle, then serves both /api/* and
+# the static SPA from the same origin (no CORS).
+#
+# Deploy from the Render dashboard: New -> Blueprint Instance -> point at this
+# repo. Then set OLLAMA_HOST in the service's Environment tab to wherever you
+# run Ollama (your PC, a VPS, etc. — Render's free tier can't run Ollama
+# itself).
+
+services:
+  - type: web
+    name: sqlgen
+    runtime: python
+    plan: free
+    region: oregon
+    branch: main
+    autoDeploy: true
+    healthCheckPath: /api/health
+
+    buildCommand: |
+      pip install --upgrade pip &&
+      pip install -r requirements.txt &&
+      cd frontend &&
+      npm install &&
+      npm run build
+    startCommand: sqlgen-server
+
+    envVars:
+      # Production server settings.
+      - key: SQLGEN_HOST
+        value: 0.0.0.0
+      - key: SQLGEN_DEV
+        value: "false"
+
+      # Ollama endpoint. The deployed backend proxies to this URL.
+      # SET THIS in the Render dashboard after first deploy — pointing it at
+      # localhost won't work from Render; use a tunnel, VPS, or a public
+      # Ollama host. The placeholder below just keeps the service bootable.
+      - key: OLLAMA_HOST
+        value: http://localhost:11434
+        sync: false

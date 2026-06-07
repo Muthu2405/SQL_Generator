@@ -1,0 +1,33 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.egg-info/
+*.egg
+
+# Local virtual environment
+SQL_env/
+.venv/
+venv/
+env/
+
+# Secrets / local config
+.env
+.env.local
+.env.*.local
+
+# Build artifacts
+frontend/dist/
+frontend/node_modules/
+frontend/.vite/
+
+# Editor / OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+npm-debug.log*
+pip-debug.log*

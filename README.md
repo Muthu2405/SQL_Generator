@@ -349,6 +349,5 @@ The frontend uses `import.meta.env.VITE_BACKEND_URL` to determine the API backen
 
 ## Links
 
-- **Live Demo**: [https://sqlgen-frontend.onrender.com](https://sqlgen-frontend.onrender.com)
-- **Backend API**: [https://sql-generator-bvxv.onrender.com](https://sql-generator-bvxv.onrender.com)
-- **GitHub**: [your-repo-url]
+- **LIVE DEMO**: [https://sql-generator-bvxv.onrender.com](https://sql-generator-bvxv.onrender.com)
+- **GitHub**: (https://github.com/Muthu2405/SQL_Generator)
